@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>org.ayakaji</groupId>
 	<artifactId>SpringBootQues</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>prjSprBotQues</name>
 	<description>Review Organization Satisfaction Questionnaire ( Spring Boot Version )</description>
 

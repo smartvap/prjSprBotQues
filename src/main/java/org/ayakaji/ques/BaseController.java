@@ -79,7 +79,9 @@ public class BaseController {
 			put("5e86d3013631f26fb3adaf91", "对餐饮的满意度");
 			put("5e86d3c73631f270a165d371", "对住宿的满意度");
 			put("5e86d3fe3631f270d19569aa", "对办公、餐饮和住宿的建议");
+			put("5e86d3fe3631f270d19569ac", "对调查表的改进建议");
 			put("5e86d3fe3631f270d19569ab_open", "对办公、餐饮和住宿的建议");
+			put("5e86d3fe3631f270d19569ad_open", "对调查表的改进建议");
 			// 字典
 			put("5e830e9492beb5146e291c2e", "十分满意");
 			put("5e830e9492beb5146e291c2f", "满意");
@@ -248,6 +250,9 @@ public class BaseController {
 		if (jsonObj.containsKey("对办公、餐饮和住宿的建议")) {
 			mapVal.put("catHtlSugg", jsonObj.getJSONObject("对办公、餐饮和住宿的建议").getString("对办公、餐饮和住宿的建议"));
 		}
+		if (jsonObj.containsKey("对调查表的改进建议")) {
+			mapVal.put("quesImprSugg", jsonObj.getJSONObject("对调查表的改进建议").getString("对调查表的改进建议"));
+		}
 		exec();
 		return "Success!";
 	}
@@ -255,9 +260,9 @@ public class BaseController {
 	private void exec() {
 		String sqlTxt = "INSERT INTO sat_survey (sat_id, proj_name, proj_id, rev_date, rev_loc, agent_name, rev_ognz, rev_ognz_dtl, "
 				+ "leg_proc, leg_proc_dtl, rev_leg, rev_leg_dtl, jdg_leg, jdg_leg_dtl, rev_sugg, ofc_env, ofc_env_dtl, cat_eval, "
-				+ "cat_eval_dtl, htl_eval, htl_eval_dtl, cat_htl_sugg, evtr_id) VALUES (seq_sat_id.nextval, :projName, "
+				+ "cat_eval_dtl, htl_eval, htl_eval_dtl, cat_htl_sugg, ques_impr_sugg, evtr_id) VALUES (seq_sat_id.nextval, :projName, "
 				+ ":projId, :revDate, :revLoc, :agentName, :revOgnz, :revOgnzDtl, :legProc, :legProcDtl, :revLeg, :revLegDtl, :jdgLeg, "
-				+ ":jdgLegDtl, :revSugg, :ofcEnv, :ofcEnvDtl, :catEval, :catEvalDtl, :htlEval, :htlEvalDtl, :catHtlSugg, :evtrId)";
+				+ ":jdgLegDtl, :revSugg, :ofcEnv, :ofcEnvDtl, :catEval, :catEvalDtl, :htlEval, :htlEvalDtl, :catHtlSugg, :quesImprSugg, :evtrId)";
 		Map<String, Object> para = new HashMap<String, Object>() {
 			private static final long serialVersionUID = 6002845785012072073L;
 			{
@@ -282,6 +287,7 @@ public class BaseController {
 				put("htlEval", mapVal.get("htlEval"));
 				put("htlEvalDtl", mapVal.get("htlEvalDtl"));
 				put("catHtlSugg", mapVal.get("catHtlSugg"));
+				put("quesImprSugg", mapVal.get("quesImprSugg"));
 				put("evtrId", mapVal.get("telNum"));
 			}
 		};

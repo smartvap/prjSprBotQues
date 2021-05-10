@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: prod
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: org.ayakaji.ques.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    #Mybatis二级缓存，默认为 true
+    cache-enabled: false
+    #开启日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

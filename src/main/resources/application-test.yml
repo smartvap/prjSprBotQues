@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@10.19.195.240:2522:oyy2a
+    username: tbcs
+    password: tbcsbcv
+    driver-class-name: oracle.jdbc.OracleDriver
+    initial-size: 5
+    min-idle: 5
+    max-idle: 10
+    max-wait: 10000
